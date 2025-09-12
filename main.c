@@ -4,6 +4,7 @@
 #include "base_defs.h"
 
 #include "screen_one.h"
+#include "screen_two.h"
 
 static void destroy( GtkWidget *widget,    gpointer   data );
 
@@ -33,6 +34,7 @@ int main(int argc, char* argv[]) {
   g_signal_connect (G_OBJECT (window), "destroy", G_CALLBACK (destroy), NULL);
 
   create_screen_one_rtn                (  &pall_hdls );
+  create_screen_two_rtn                (  &pall_hdls );
 
   gtk_widget_show_all ( window );
 
