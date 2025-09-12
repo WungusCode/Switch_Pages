@@ -4,8 +4,6 @@
 #include "base_defs.h"
 
 #include "screen_one.h"
-#include "screen_two.h"
-#include "screen_three.h"
 
 int one_dbg=0;
 
