@@ -13,6 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essentials libgtk3.0-dev libsqlite3-dev libssl-dev
+
     - name: make
       run: make
     - name: make check
