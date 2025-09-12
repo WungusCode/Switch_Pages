@@ -49,6 +49,8 @@ uninstall: clean
 
 FORCE: ;
 
+check: ;
+
 tags: FORCE
 	${RM} -f tags
 	${CTAGS} -R $(SRCS_FOLDER)
