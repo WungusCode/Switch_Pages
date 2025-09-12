@@ -1,0 +1,25 @@
+name: Ubuntu Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  ubuntu_build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essentials libgtk3.0-dev libsqlite3-dev libssl-dev
+      - name: Configure
+        run: meson build -Dtext=true -Dtheme-manager=true -Dauto_features=enabled
+
+      - name: Build
+        run: make
