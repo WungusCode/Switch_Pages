@@ -5,6 +5,7 @@
 
 #include "screen_one.h"
 #include "screen_two.h"
+#include "screen_three.h"
 
 int two_dbg=0;
 
@@ -21,6 +22,14 @@ static void back_to_one ( GtkButton *button , gpointer data ) {
   hide_screen_two( all_hdls );
 
   create_screen_one ( all_hdls );
+}
+
+static void screen_three ( GtkButton *button , gpointer data ) {
+  phdl_grp all_hdls = (phdl_grp)data;
+
+  hide_screen_two( all_hdls );
+
+  create_screen_three ( all_hdls );
 }
 
 int create_screen_two ( phdl_grp pall_hdls ) {
@@ -68,6 +77,14 @@ int create_screen_two ( phdl_grp pall_hdls ) {
     g_signal_connect (button, "clicked",  G_CALLBACK ( back_to_one ), (gpointer) pall_hdls );
 
     gtk_box_pack_start (GTK_BOX ( hbox2 ), button, TRUE, FALSE, 0);
+
+    // simple button , TODO make a text_view
+    button = gtk_button_new_with_label ("screen 3");
+    gtk_widget_set_valign ( button, GTK_ALIGN_CENTER);
+    gtk_box_pack_start (GTK_BOX ( hbox2 ), button, TRUE, FALSE, 0);
+
+    g_object_set ( button , "tooltip-text", "Click to go to screen three", NULL);
+    g_signal_connect (button, "clicked",  G_CALLBACK ( screen_three ), (gpointer) pall_hdls );
 
     g_object_ref ( pall_hdls->vbox_two );
 
