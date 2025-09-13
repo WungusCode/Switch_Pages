@@ -5,6 +5,8 @@
 
 #include "screen_one.h"
 #include "screen_two.h"
+#include "screen_three.h"
+#include "screen_four.h"
 
 static void destroy( GtkWidget *widget,    gpointer   data );
 
@@ -35,6 +37,8 @@ int main(int argc, char* argv[]) {
 
   create_screen_one_rtn                (  &pall_hdls );
   create_screen_two_rtn                (  &pall_hdls );
+  create_screen_three_rtn                (  &pall_hdls );
+  create_screen_four_rtn                (  &pall_hdls );
 
   gtk_widget_show_all ( window );
 
