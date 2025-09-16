@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
   
   gtk_main();  // blocks until GTK terminates
 
-  print("     TADA      \n");
+  printf("     TADA      \n");
   
   return rc;
 } // main
