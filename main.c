@@ -12,6 +12,7 @@ static void destroy( GtkWidget *widget,    gpointer   data );
 
 int main(int argc, char* argv[]) {
   int rc = 0;
+  int dbg = 0, ii = 0;
 
   GtkWidget* window;
   hdl_grp   all_hdls;
@@ -22,7 +23,7 @@ int main(int argc, char* argv[]) {
   if ( argc > 1 ) {
     while ( ii < argc ) {
       if ( strcmp( "-d" , argv[ii] ) == 0 ) {
-        flgs->dbg = 1;
+        dbg = 1;
       }
       ii++;
     } // while
