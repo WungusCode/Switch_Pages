@@ -19,6 +19,15 @@ int main(int argc, char* argv[]) {
 
   pall_hdls = &all_hdls;
 
+  if ( argc > 1 ) {
+    while ( ii < argc ) {
+      if ( strcmp( "-d" , argv[ii] ) == 0 ) {
+        flgs->dbg = 1;
+      }
+      ii++;
+    } // while
+  } // if
+  
   gtk_init(&argc, &argv);
 
     // code
@@ -42,7 +51,7 @@ int main(int argc, char* argv[]) {
 
   gtk_widget_show_all ( window );
 
-  g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
+  if (flgs->dbg ) g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
   
   gtk_main();  // blocks until GTK terminates
 
