@@ -12,6 +12,7 @@ static void destroy( GtkWidget *widget,    gpointer   data );
 
 int main(int argc, char* argv[]) {
   int rc = 0;
+  int dbg = 0, ii = 0;
 
   GtkWidget* window;
   hdl_grp   all_hdls;
@@ -19,6 +20,15 @@ int main(int argc, char* argv[]) {
 
   pall_hdls = &all_hdls;
 
+  if ( argc > 1 ) {
+    while ( ii < argc ) {
+      if ( strcmp( "-d" , argv[ii] ) == 0 ) {
+        dbg = 1;
+      }
+      ii++;
+    } // while
+  } // if
+  
   gtk_init(&argc, &argv);
 
     // code
@@ -42,8 +52,12 @@ int main(int argc, char* argv[]) {
 
   gtk_widget_show_all ( window );
 
+  if ( dbg ) g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
+  
   gtk_main();  // blocks until GTK terminates
 
+  printf("     TADA      \n");
+  
   return rc;
 } // main
 
