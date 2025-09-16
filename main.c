@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
 
   gtk_widget_show_all ( window );
 
-  if (flgs->dbg ) g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
+  if ( dbg ) g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
   
   gtk_main();  // blocks until GTK terminates
 
