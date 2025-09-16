@@ -42,8 +42,12 @@ int main(int argc, char* argv[]) {
 
   gtk_widget_show_all ( window );
 
+  g_timeout_add ( 1000, (GSourceFunc)destroy, NULL );
+  
   gtk_main();  // blocks until GTK terminates
 
+  print("     TADA      \n");
+  
   return rc;
 } // main
 
